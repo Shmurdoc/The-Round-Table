@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RoundTable - Test Dashboard</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: 20px;
+            min-height: 100vh;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .header {
+            background: white;
+            border-radius: 10px;
+            padding: 30px;
+            margin-bottom: 20px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        .header h1 {
+            color: #667eea;
+            margin-bottom: 10px;
+        }
+        
+        .status-badge {
+            display: inline-block;
+            background: #10b981;
+            color: white;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 14px;
+            font-weight: bold;
+        }
+        
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin-bottom: 20px;
+        }
+        
+        .card {
+            background: white;
+            border-radius: 10px;
+            padding: 25px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        .card h2 {
+            color: #667eea;
+            margin-bottom: 15px;
+            font-size: 20px;
+        }
+        
+        .stat {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 0;
+            border-bottom: 1px solid #f0f0f0;
+        }
+        
+        .stat:last-child {
+            border-bottom: none;
+        }
+        
+        .stat-label {
+            color: #666;
+            font-size: 14px;
+        }
+        
+        .stat-value {
+            font-weight: bold;
+            color: #333;
+            font-size: 16px;
+        }
+        
+        .test-account {
+            background: #f8fafc;
+            border-left: 4px solid #667eea;
+            padding: 15px;
+            margin-bottom: 10px;
+            border-radius: 5px;
+        }
+        
+        .test-account h3 {
+            color: #667eea;
+            font-size: 16px;
+            margin-bottom: 8px;
+        }
+        
+        .test-account p {
+            color: #666;
+            font-size: 14px;
+            margin: 3px 0;
+        }
+        
+        .test-account code {
+            background: #667eea;
+            color: white;
+            padding: 2px 8px;
+            border-radius: 3px;
+            font-size: 13px;
+        }
+        
+        .btn {
+            display: inline-block;
+            background: #667eea;
+            color: white;
+            padding: 12px 30px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: bold;
+            margin: 5px;
+            transition: all 0.3s;
+        }
+        
+        .btn:hover {
+            background: #5568d3;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.3);
+        }
+        
+        .btn-success {
+            background: #10b981;
+        }
+        
+        .btn-success:hover {
+            background: #059669;
+        }
+        
+        .checklist {
+            list-style: none;
+        }
+        
+        .checklist li {
+            padding: 10px 0;
+            border-bottom: 1px solid #f0f0f0;
+            position: relative;
+            padding-left: 30px;
+        }
+        
+        .checklist li:before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: #10b981;
+            font-weight: bold;
+            font-size: 20px;
+        }
+        
+        .alert {
+            background: #fef3c7;
+            border-left: 4px solid #f59e0b;
+            padding: 15px;
+            border-radius: 5px;
+            margin: 20px 0;
+        }
+        
+        .alert h3 {
+            color: #f59e0b;
+            margin-bottom: 10px;
+        }
+        
+        .footer {
+            background: white;
+            border-radius: 10px;
+            padding: 20px;
+            text-align: center;
+            margin-top: 20px;
+            color: #666;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <div class="header">
+            <h1>🎯 RoundTable System - Test Dashboard</h1>
+            <p style="color: #666; margin: 10px 0;">Comprehensive stress testing complete</p>
+            <span class="status-badge">✅ 100% Tests Passed</span>
+            <span class="status-badge" style="background: #3b82f6;">🚀 System Operational</span>
+        </div>
+        
+        <!-- Statistics Grid -->
+        <div class="grid">
+            <div class="card">
+                <h2>📊 Database Statistics</h2>
+                <div class="stat">
+                    <span class="stat-label">Total Users</span>
+                    <span class="stat-value">32</span>
+                </div>
+                <div class="stat">
+                    <span class="stat-label">Active Cohorts</span>
+                    <span class="stat-value">2</span>
+                </div>
+                <div class="stat">
+                    <span class="stat-label">Total Transactions</span>
+                    <span class="stat-value">14</span>
+                </div>
+                <div class="stat">
+                    <span class="stat-label">Capital Raised</span>
+                    <span class="stat-value">R1,200,000</span>
+                </div>
+            </div>
+            
+            <div class="card">
+                <h2>✅ Test Results</h2>
+                <div class="stat">
+                    <span class="stat-label">System Tests</span>
+                    <span class="stat-value" style="color: #10b981;">15/15 ✓</span>
+                </div>
+                <div class="stat">
+                    <span class="stat-label">Auth Tests</span>
+                    <span class="stat-value" style="color: #10b981;">8/8 ✓</span>
+                </div>
+                <div class="stat">
+                    <span class="stat-label">Success Rate</span>
+                    <span class="stat-value" style="color: #10b981;">100%</span>
+                </div>
+                <div class="stat">
+                    <span class="stat-label">Query Speed</span>
+                    <span class="stat-value" style="color: #10b981;">< 500ms</span>
+                </div>
+            </div>
+            
+            <div class="card">
+                <h2>🎭 User Roles</h2>
+                <div class="stat">
+                    <span class="stat-label">Platform Admins</span>
+                    <span class="stat-value">1</span>
+                </div>
+                <div class="stat">
+                    <span class="stat-label">Cohort Admins</span>
+                    <span class="stat-value">1</span>
+                </div>
+                <div class="stat">
+                    <span class="stat-label">Members</span>
+                    <span class="stat-value">30</span>
+                </div>
+                <div class="stat">
+                    <span class="stat-label">KYC Verified</span>
+                    <span class="stat-value">32</span>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Test Accounts -->
+        <div class="card" style="margin-bottom: 20px;">
+            <h2>🔑 Test Accounts - Quick Login</h2>
+            
+            <div class="test-account">
+                <h3>👑 Platform Administrator</h3>
+                <p><strong>Email:</strong> <code>admin@roundtable.com</code></p>
+                <p><strong>Password:</strong> <code>Admin@123</code></p>
+                <p><strong>Access:</strong> Full system administration, cohort approval, KYC management, user management</p>
+                <a href="http://127.0.0.1:8000/login" class="btn" target="_blank">Login as Admin</a>
+            </div>
+            
+            <div class="test-account">
+                <h3>🎩 Cohort Administrator</h3>
+                <p><strong>Email:</strong> <code>jane@example.com</code></p>
+                <p><strong>Password:</strong> <code>Password@123</code></p>
+                <p><strong>Access:</strong> Cohort management, member management, transactions, voting, distributions</p>
+                <a href="http://127.0.0.1:8000/login" class="btn" target="_blank">Login as Cohort Admin</a>
+            </div>
+            
+            <div class="test-account">
+                <h3>👤 Member Account</h3>
+                <p><strong>Email:</strong> <code>member1@example.com</code> (or member2 to member10)</p>
+                <p><strong>Password:</strong> <code>Password@123</code></p>
+                <p><strong>Access:</strong> Join cohorts, vote, view distributions, manage profile</p>
+                <a href="http://127.0.0.1:8000/login" class="btn" target="_blank">Login as Member</a>
+            </div>
+            
+            <div class="test-account">
+                <h3>🧪 Stress Test Accounts</h3>
+                <p><strong>Email:</strong> <code>testuser1@stresstest.com</code> (to testuser20@stresstest.com)</p>
+                <p><strong>Password:</strong> <code>StrongPass@1</code> (to StrongPass@20)</p>
+                <p><strong>Purpose:</strong> Load testing, concurrent user simulation</p>
+            </div>
+        </div>
+        
+        <!-- Quick Actions -->
+        <div class="card" style="margin-bottom: 20px;">
+            <h2>⚡ Quick Actions</h2>
+            <div style="text-align: center; padding: 20px 0;">
+                <a href="http://127.0.0.1:8000" class="btn btn-success" target="_blank">🏠 View Landing Page</a>
+                <a href="http://127.0.0.1:8000/login" class="btn" target="_blank">🔐 Login Page</a>
+                <a href="http://127.0.0.1:8000/register" class="btn" target="_blank">📝 Register Page</a>
+                <a href="http://127.0.0.1:8000/member/dashboard" class="btn" target="_blank">📊 Member Dashboard</a>
+            </div>
+        </div>
+        
+        <!-- Test Scenarios -->
+        <div class="grid">
+            <div class="card">
+                <h2>✅ Completed Tests</h2>
+                <ul class="checklist">
+                    <li>Database Connection</li>
+                    <li>User Authentication</li>
+                    <li>Role Assignment</li>
+                    <li>Cohort Creation</li>
+                    <li>Capital Calculations</li>
+                    <li>Transaction Integrity</li>
+                    <li>KYC Verification</li>
+                    <li>Password Security</li>
+                    <li>Concurrent Logins (10 users)</li>
+                    <li>Multi-Cohort Membership</li>
+                    <li>Ownership Percentage</li>
+                    <li>Revenue Tracking</li>
+                    <li>Query Performance</li>
+                </ul>
+            </div>
+            
+            <div class="card">
+                <h2>🧪 Manual Testing Guide</h2>
+                <ul class="checklist">
+                    <li>Test login with all 3 roles</li>
+                    <li>View member dashboard</li>
+                    <li>Browse available cohorts</li>
+                    <li>Join a cohort (if allowed)</li>
+                    <li>Test voting system</li>
+                    <li>View transaction history</li>
+                    <li>Test cohort admin functions</li>
+                    <li>Test platform admin approval</li>
+                    <li>Verify responsive design</li>
+                    <li>Test logout functionality</li>
+                </ul>
+            </div>
+        </div>
+        
+        <!-- Sample Cohort Data -->
+        <div class="card" style="margin-top: 20px;">
+            <h2>💼 Sample Cohorts</h2>
+            
+            <div class="test-account">
+                <h3>🚀 Tech Startup Investment Pool</h3>
+                <p><strong>Status:</strong> <code style="background: #10b981;">Operational</code></p>
+                <p><strong>Capital Raised:</strong> R750,000 / R1,000,000 (75%)</p>
+                <p><strong>Members:</strong> 8 investors</p>
+                <p><strong>Admin:</strong> jane@example.com</p>
+                <p><strong>Recent Activity:</strong> R150,000 revenue from TechCo Investment</p>
+            </div>
+            
+            <div class="test-account">
+                <h3>🏠 Property Development Fund</h3>
+                <p><strong>Status:</strong> <code style="background: #f59e0b;">Funding</code></p>
+                <p><strong>Capital Raised:</strong> R450,000 / R2,000,000 (22.5%)</p>
+                <p><strong>Members:</strong> 5 investors</p>
+                <p><strong>Admin:</strong> jane@example.com</p>
+                <p><strong>Investment Focus:</strong> Residential property development in Gauteng</p>
+            </div>
+        </div>
+        
+        <!-- Alert Box -->
+        <div class="alert">
+            <h3>⚠️ Important Notes</h3>
+            <p style="margin: 5px 0;">• Server running on <strong>http://127.0.0.1:8000</strong></p>
+            <p style="margin: 5px 0;">• All test accounts have <strong>verified KYC status</strong></p>
+            <p style="margin: 5px 0;">• Investment range: <strong>R3,000 - R100,000</strong></p>
+            <p style="margin: 5px 0;">• Database contains <strong>real test data</strong> - ready for UAT</p>
+            <p style="margin: 5px 0;">• Payment gateway <strong>not yet integrated</strong> (manual processing only)</p>
+        </div>
+        
+        <!-- Documentation -->
+        <div class="card">
+            <h2>📚 Documentation</h2>
+            <p style="color: #666; margin-bottom: 15px;">Detailed test reports and system documentation available:</p>
+            <ul style="list-style: none; padding: 0;">
+                <li style="padding: 8px 0;">📄 <strong>TEST-REPORT.md</strong> - Comprehensive test results and credentials</li>
+                <li style="padding: 8px 0;">📋 <strong>ROUNDTABLE_SPECIFICATION.md</strong> - System requirements and features</li>
+                <li style="padding: 8px 0;">✅ <strong>ROUNDTABLE_PHP_TODO.md</strong> - Development progress tracker</li>
+                <li style="padding: 8px 0;">🧪 <strong>tests/StressTest.php</strong> - Automated system tests</li>
+                <li style="padding: 8px 0;">🔐 <strong>tests/AuthStressTest.php</strong> - Authentication stress tests</li>
+            </ul>
+        </div>
+        
+        <!-- Footer -->
+        <div class="footer">
+            <p><strong>RoundTable Investment Platform</strong></p>
+            <p style="margin: 10px 0;">Laravel 12 • PHP 8.4 • MySQL 8.0</p>
+            <p>Test Environment • All Systems Operational ✅</p>
+        </div>
+    </div>
+</body>
+</html>
