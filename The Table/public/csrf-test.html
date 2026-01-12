@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>419 Debug Test</title>
+    <style>
+        body { font-family: monospace; padding: 20px; background: #1e1e1e; color: #00ff00; }
+        .pass { color: #00ff00; }
+        .fail { color: #ff0000; }
+        pre { background: #000; padding: 10px; border: 1px solid #00ff00; }
+        button { background: #00ff00; color: #000; padding: 10px 20px; border: none; cursor: pointer; font-weight: bold; }
+    </style>
+</head>
+<body>
+    <h1>CSRF Debug - No BS Edition</h1>
+    
+    <h2>Test 1: Check if session cookie is set</h2>
+    <pre id="test1">Running...</pre>
+    
+    <h2>Test 2: Submit login form with AJAX</h2>
+    <button onclick="testLogin()">TEST LOGIN NOW</button>
+    <pre id="test2">Waiting...</pre>
+    
+    <h2>Test 3: Get CSRF Token</h2>
+    <pre id="test3">Running...</pre>
+
+    <script>
+        // Test 1: Check cookies
+        setTimeout(() => {
+            const cookies = document.cookie;
+            const hasCookie = cookies.includes('roundtable-session') || cookies.includes('XSRF-TOKEN');
+            document.getElementById('test1').innerHTML = hasCookie 
+                ? '<span class="pass">✓ PASS - Session cookie found</span>\n' + cookies
+                : '<span class="fail">✗ FAIL - No session cookie!</span>\n' + cookies;
+        }, 500);
+        
+        // Test 3: Get CSRF Token from page
+        fetch('/login')
+            .then(r => r.text())
+            .then(html => {
+                const match = html.match(/name="_token" value="([^"]+)"/);
+                const token = match ? match[1] : null;
+                document.getElementById('test3').innerHTML = token
+                    ? '<span class="pass">✓ PASS - CSRF token found: ' + token.substring(0, 20) + '...</span>'
+                    : '<span class="fail">✗ FAIL - No CSRF token in form!</span>';
+            });
+        
+        // Test 2: Submit login
+        function testLogin() {
+            document.getElementById('test2').innerHTML = 'Testing login submission...';
+            
+            fetch('/login', {
+                method: 'GET'
+            })
+            .then(r => r.text())
+            .then(html => {
+                const match = html.match(/name="_token" value="([^"]+)"/);
+                const token = match ? match[1] : null;
+                
+                if (!token) {
+                    document.getElementById('test2').innerHTML = '<span class="fail">✗ FAIL - Could not extract CSRF token</span>';
+                    return;
+                }
+                
+                // Now submit login
+                const formData = new FormData();
+                formData.append('_token', token);
+                formData.append('email', 'admin@roundtable.com');
+                formData.append('password', 'Admin@123');
+                
+                return fetch('/login', {
+                    method: 'POST',
+                    body: formData,
+                    credentials: 'same-origin',
+                    redirect: 'manual'
+                });
+            })
+            .then(response => {
+                if (!response) return;
+                
+                const status = response.status;
+                const type = response.type;
+                
+                let result = 'Status: ' + status + '\n';
+                result += 'Type: ' + type + '\n';
+                
+                if (status === 419) {
+                    result += '<span class="fail">✗ FAIL - Got 419 Page Expired!</span>\n';
+                    result += 'This means CSRF token validation failed.';
+                } else if (status === 302 || type === 'opaqueredirect') {
+                    result += '<span class="pass">✓ PASS - Login successful! Got redirect.</span>';
+                } else if (status === 200) {
+                    result += '<span class="fail">⚠ WARNING - Got 200. Check for validation errors.</span>';
+                } else {
+                    result += '<span class="fail">✗ UNEXPECTED - Status ' + status + '</span>';
+                }
+                
+                document.getElementById('test2').innerHTML = result;
+            })
+            .catch(err => {
+                document.getElementById('test2').innerHTML = '<span class="fail">✗ ERROR: ' + err.message + '</span>';
+            });
+        }
+    </script>
+</body>
+</html>

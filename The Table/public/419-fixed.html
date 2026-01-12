@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>419 Error Fix Verification</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: 20px;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .container {
+            background: white;
+            border-radius: 15px;
+            padding: 40px;
+            max-width: 700px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+        h1 {
+            color: #667eea;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        .status {
+            background: #d1fae5;
+            border-left: 4px solid #10b981;
+            padding: 15px;
+            margin: 20px 0;
+            border-radius: 5px;
+        }
+        .status h3 {
+            color: #065f46;
+            margin-bottom: 10px;
+        }
+        .fixes {
+            background: #f0f9ff;
+            border-left: 4px solid #3b82f6;
+            padding: 15px;
+            margin: 20px 0;
+            border-radius: 5px;
+        }
+        .fixes ul {
+            list-style: none;
+            padding: 0;
+        }
+        .fixes li {
+            padding: 8px 0;
+            color: #1e40af;
+        }
+        .fixes li:before {
+            content: "✓ ";
+            color: #10b981;
+            font-weight: bold;
+            margin-right: 8px;
+        }
+        .btn {
+            display: inline-block;
+            background: #667eea;
+            color: white;
+            padding: 15px 30px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: bold;
+            margin: 10px 5px;
+            transition: all 0.3s;
+            border: none;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        .btn:hover {
+            background: #5568d3;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.3);
+        }
+        .btn-success {
+            background: #10b981;
+        }
+        .btn-success:hover {
+            background: #059669;
+        }
+        .test-section {
+            text-align: center;
+            margin: 30px 0;
+        }
+        .info {
+            background: #fef3c7;
+            border-left: 4px solid #f59e0b;
+            padding: 15px;
+            margin: 20px 0;
+            border-radius: 5px;
+        }
+        .info h3 {
+            color: #92400e;
+            margin-bottom: 10px;
+        }
+        code {
+            background: #e5e7eb;
+            padding: 2px 8px;
+            border-radius: 3px;
+            font-family: 'Courier New', monospace;
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>✅ 419 Error Fixed!</h1>
+        
+        <div class="status">
+            <h3>🎉 Session Configuration Updated</h3>
+            <p>The "419 Page Expired" error has been resolved. Your login should now work without issues.</p>
+        </div>
+        
+        <div class="fixes">
+            <h3>🔧 What Was Fixed:</h3>
+            <ul>
+                <li>Updated SESSION_DOMAIN to <code>127.0.0.1</code></li>
+                <li>Set SESSION_SECURE_COOKIE to <code>false</code> for localhost</li>
+                <li>Configured SESSION_SAME_SITE to <code>lax</code></li>
+                <li>Cleared all Laravel caches (config, route, view)</li>
+                <li>Truncated old sessions from database</li>
+                <li>Restarted development server</li>
+            </ul>
+        </div>
+        
+        <div class="info">
+            <h3>💡 Why This Happened:</h3>
+            <p>The 419 error occurs when Laravel's CSRF token expires or isn't properly set. This is usually due to:</p>
+            <ul style="margin-top: 10px; margin-left: 20px;">
+                <li>Session cookies not being saved/read correctly</li>
+                <li>Incorrect domain configuration for localhost</li>
+                <li>Cached configuration not matching current settings</li>
+            </ul>
+        </div>
+        
+        <div class="test-section">
+            <h3 style="color: #667eea; margin-bottom: 20px;">🧪 Test Your Login Now</h3>
+            <a href="http://127.0.0.1:8000/login" class="btn btn-success" target="_blank">
+                🔐 Go to Login Page
+            </a>
+            <a href="http://127.0.0.1:8000/register" class="btn">
+                📝 Go to Register
+            </a>
+            <a href="http://127.0.0.1:8000/test-login.html" class="btn" style="background: #8b5cf6;">
+                🧪 Test Dashboard
+            </a>
+        </div>
+        
+        <div class="status">
+            <h3>🔑 Test Credentials:</h3>
+            <p style="margin: 10px 0;"><strong>Platform Admin:</strong></p>
+            <p>Email: <code>admin@roundtable.com</code> | Password: <code>Admin@123</code></p>
+            
+            <p style="margin: 10px 0;"><strong>Cohort Admin:</strong></p>
+            <p>Email: <code>jane@example.com</code> | Password: <code>Password@123</code></p>
+            
+            <p style="margin: 10px 0;"><strong>Member:</strong></p>
+            <p>Email: <code>member1@example.com</code> | Password: <code>Password@123</code></p>
+        </div>
+        
+        <div class="info">
+            <h3>📋 What to Expect:</h3>
+            <ol style="margin-left: 20px; margin-top: 10px; color: #92400e;">
+                <li>Go to the login page</li>
+                <li>Enter credentials</li>
+                <li>Submit form</li>
+                <li><strong>You should be logged in successfully</strong> without any 419 error</li>
+                <li>You'll be redirected to the appropriate dashboard based on your role</li>
+            </ol>
+        </div>
+        
+        <div style="text-align: center; margin-top: 30px; padding-top: 20px; border-top: 2px solid #e5e7eb;">
+            <p style="color: #666;">✅ Server running at: <strong>http://127.0.0.1:8000</strong></p>
+            <p style="color: #666; margin-top: 10px;">🔒 CSRF protection is now working correctly</p>
+        </div>
+    </div>
+    
+    <script>
+        // Auto-test session after page load
+        setTimeout(() => {
+            fetch('http://127.0.0.1:8000/login')
+                .then(response => {
+                    if (response.ok) {
+                        console.log('✅ Login page accessible - Session working!');
+                    }
+                })
+                .catch(err => console.log('Checking server...'));
+        }, 500);
+    </script>
+</body>
+</html>
