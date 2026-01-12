@@ -1,33 +1,65 @@
-# Laravel
-/node_modules
-/public/build
-/public/hot
-/public/storage
-/storage/*.key
-/vendor
-.env
-.env.backup
-.env.production
-.phpunit.result.cache
-Homestead.json
-Homestead.yaml
-auth.json
-npm-debug.log
-yarn-error.log
-/.fleet
-/.idea
-/.vscode
+# Root .gitignore for The Round Table project
 
-# OS
-.DS_Store
+# OS files
 Thumbs.db
+ehthumbs.db
+.DS_Store
 
-# Backup files
-*.bak
-*.orig.bak
-
-# Logs
+# Logs and databases
 *.log
+*.sql
+*.sqlite
 
-# PHP
-composer.phar
+# PHP / Composer
+/vendor/
+/composer.phar
+/composer.lock
+
+# Node
+/node_modules/
+/npm-debug.log*
+/yarn-error.log*
+
+# Environment files
+*.env
+.env.*
+
+# IDEs and editors
+/.idea/
+.vscode/
+*.sublime-project
+*.sublime-workspace
+
+# Build outputs
+/public/build/
+/public/dist/
+/mix-manifest.json
+
+# Laravel / framework specific
+/storage/
+/public/storage/
+.env
+Homestead.yaml
+Homestead.json
+/public/hot
+/bootstrap/cache/*.php
+
+# Ignore OS-specific WAMP artifacts
+wwroot/
+
+# IntelliJ
+*.iml
+
+# Archives and backups
+*.zip
+*.tar.gz
+*.rar
+*.bak
+
+# Ignore uploaded user data and KYC images
+The Table/public/storage/
+The Table/storage/
+
+# Allow gitkeep files
+!The Table/storage/.gitignore
+!The Table/public/storage/.gitignore
