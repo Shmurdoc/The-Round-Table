@@ -125,7 +125,7 @@
     <!-- Hero Background Video -->
     <div class="fixed inset-0 z-0">
         <video autoplay muted loop playsinline class="w-full h-full object-cover ken-burns opacity-40">
-            <source src="<?php echo e(asset('assets/img/showcase/1a5868ca2539d29b13300f52ab0a2e15.mp4')); ?>" type="video/mp4">
+            <source src="<?php echo e(Storage::url('cohorts/images/1a5868ca2539d29b13300f52ab0a2e15.mp4')); ?>" type="video/mp4">
         </video>
         <div class="absolute inset-0 bg-gradient-to-b from-slate-950/70 via-slate-950/90 to-slate-950"></div>
     </div>
@@ -235,7 +235,7 @@
                     <!-- Main Featured Image -->
                     <div class="relative z-20">
                         <div class="cyber-border rounded-3xl overflow-hidden image-card">
-                            <img src="<?php echo e(asset('assets/img/showcase/inv5.jpg')); ?>" alt="Investment Partnership" class="w-full h-80 object-cover">
+                            <img src="<?php echo e(Storage::url('cohorts/images/inv5.jpg')); ?>" alt="Investment Partnership" class="w-full h-80 object-cover">
                             <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-transparent to-transparent"></div>
                             <div class="absolute bottom-6 left-6 right-6">
                                 <div class="flex items-center justify-between">
@@ -254,14 +254,14 @@
                     <!-- Floating Cards -->
                     <div class="absolute -top-8 -right-8 z-30 image-card">
                         <div class="w-40 h-40 rounded-2xl overflow-hidden border-2 border-slate-700 shadow-2xl">
-                            <img src="<?php echo e(asset('assets/img/showcase/videoframe_14198.png')); ?>" alt="Tech Investment" class="w-full h-full object-cover">
+                            <img src="<?php echo e(Storage::url('cohorts/images/videoframe_14198.png')); ?>" alt="Tech Investment" class="w-full h-full object-cover">
                             <div class="absolute inset-0 bg-gradient-to-br from-purple-500/20 to-transparent"></div>
                         </div>
                     </div>
                     
                     <div class="absolute -bottom-4 -left-8 z-10 image-card">
                         <div class="w-48 h-32 rounded-2xl overflow-hidden border-2 border-slate-700 shadow-2xl">
-                            <img src="<?php echo e(asset('assets/img/showcase/inv7.jpg')); ?>" alt="Business Partnership" class="w-full h-full object-cover">
+                            <img src="<?php echo e(Storage::url('cohorts/images/inv7.jpg')); ?>" alt="Business Partnership" class="w-full h-full object-cover">
                             <div class="absolute inset-0 bg-gradient-to-br from-amber-500/20 to-transparent"></div>
                         </div>
                     </div>
@@ -287,7 +287,7 @@
                 <!-- Step 1 -->
                 <div class="bg-slate-800/30 backdrop-blur border border-slate-700/50 p-8 rounded-3xl relative group hover:border-amber-500/30 transition-all image-card overflow-hidden">
                     <div class="absolute inset-0 opacity-20">
-                        <img src="<?php echo e(asset('assets/img/showcase/videoframe_28362.png')); ?>" alt="" class="w-full h-full object-cover">
+                        <img src="<?php echo e(Storage::url('cohorts/images/videoframe_28362.png')); ?>" alt="" class="w-full h-full object-cover">
                         <div class="absolute inset-0 bg-gradient-to-t from-slate-900 via-slate-900/80 to-slate-900/60"></div>
                     </div>
                     <div class="relative z-10">
@@ -303,7 +303,7 @@
                 <!-- Step 2 -->
                 <div class="bg-slate-800/30 backdrop-blur border border-slate-700/50 p-8 rounded-3xl relative group hover:border-amber-500/30 transition-all image-card overflow-hidden">
                     <div class="absolute inset-0 opacity-20">
-                        <img src="<?php echo e(asset('assets/img/showcase/videoframe_4633.png')); ?>" alt="" class="w-full h-full object-cover">
+                        <img src="<?php echo e(Storage::url('cohorts/images/videoframe_4633.png')); ?>" alt="" class="w-full h-full object-cover">
                         <div class="absolute inset-0 bg-gradient-to-t from-slate-900 via-slate-900/80 to-slate-900/60"></div>
                     </div>
                     <div class="relative z-10">
@@ -319,7 +319,7 @@
                 <!-- Step 3 -->
                 <div class="bg-slate-800/30 backdrop-blur border border-slate-700/50 p-8 rounded-3xl relative group hover:border-amber-500/30 transition-all image-card overflow-hidden">
                     <div class="absolute inset-0 opacity-20">
-                        <img src="<?php echo e(asset('assets/img/showcase/videoframe_6207.png')); ?>" alt="" class="w-full h-full object-cover">
+                        <img src="<?php echo e(Storage::url('cohorts/images/videoframe_6207.png')); ?>" alt="" class="w-full h-full object-cover">
                         <div class="absolute inset-0 bg-gradient-to-t from-slate-900 via-slate-900/80 to-slate-900/60"></div>
                     </div>
                     <div class="relative z-10">
@@ -352,7 +352,7 @@
                 <!-- Large Feature -->
                 <div class="col-span-2 row-span-2 image-card group">
                     <div class="relative h-full min-h-[400px] rounded-3xl overflow-hidden cyber-border">
-                        <img src="<?php echo e(asset('assets/img/showcase/1d1c59e10dc609feb4988bd1245d765e.jpg')); ?>" alt="Premium Investment" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+                        <img src="<?php echo e(Storage::url('cohorts/images/1d1c59e10dc609feb4988bd1245d765e.jpg')); ?>" alt="Premium Investment" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
                         <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/50 to-transparent"></div>
                         <div class="absolute bottom-6 left-6 right-6">
                             <div class="flex items-center space-x-2 mb-3">
@@ -371,7 +371,7 @@
                 <!-- Smaller Cards -->
                 <div class="image-card group">
                     <div class="relative h-48 rounded-2xl overflow-hidden">
-                        <img src="<?php echo e(asset('assets/img/showcase/6371eb0e5abb1bf3b103a54f488be0df.jpg')); ?>" alt="Tech Investment" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+                        <img src="<?php echo e(Storage::url('cohorts/images/6371eb0e5abb1bf3b103a54f488be0df.jpg')); ?>" alt="Tech Investment" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
                         <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-transparent to-transparent"></div>
                         <div class="absolute bottom-4 left-4 right-4">
                             <div class="text-xs text-amber-400 font-mono mb-1">EQUIPMENT</div>
@@ -382,7 +382,7 @@
                 
                 <div class="image-card group">
                     <div class="relative h-48 rounded-2xl overflow-hidden">
-                        <img src="<?php echo e(asset('assets/img/showcase/inv7.jpg')); ?>" alt="Business Partnership" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+                        <img src="<?php echo e(Storage::url('cohorts/images/inv7.jpg')); ?>" alt="Business Partnership" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
                         <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-transparent to-transparent"></div>
                         <div class="absolute bottom-4 left-4 right-4">
                             <div class="text-xs text-purple-400 font-mono mb-1">BUSINESS</div>
@@ -393,7 +393,7 @@
                 
                 <div class="image-card group">
                     <div class="relative h-48 rounded-2xl overflow-hidden">
-                        <img src="<?php echo e(asset('assets/img/showcase/videoframe_14198.png')); ?>" alt="Energy Project" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+                        <img src="<?php echo e(Storage::url('cohorts/images/videoframe_14198.png')); ?>" alt="Energy Project" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
                         <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-transparent to-transparent"></div>
                         <div class="absolute bottom-4 left-4 right-4">
                             <div class="text-xs text-emerald-400 font-mono mb-1">RENEWABLE</div>
@@ -404,7 +404,7 @@
                 
                 <div class="image-card group">
                     <div class="relative h-48 rounded-2xl overflow-hidden">
-                        <img src="<?php echo e(asset('assets/img/showcase/inv5.jpg')); ?>" alt="Property Fund" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+                        <img src="<?php echo e(Storage::url('cohorts/images/inv5.jpg')); ?>" alt="Property Fund" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
                         <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-transparent to-transparent"></div>
                         <div class="absolute bottom-4 left-4 right-4">
                             <div class="text-xs text-blue-400 font-mono mb-1">PROPERTY</div>
@@ -488,7 +488,7 @@
             <div class="bg-gradient-to-br from-slate-800 to-slate-900 border border-slate-700 rounded-3xl p-12 text-center relative overflow-hidden image-card">
                 <!-- Background Image -->
                 <div class="absolute inset-0 opacity-10">
-                    <img src="<?php echo e(asset('assets/img/showcase/videoframe_28362.png')); ?>" alt="" class="w-full h-full object-cover">
+                    <img src="<?php echo e(Storage::url('cohorts/images/videoframe_28362.png')); ?>" alt="" class="w-full h-full object-cover">
                 </div>
                 <div class="absolute -right-20 -top-20 w-64 h-64 bg-amber-500/10 rounded-full blur-3xl"></div>
                 <div class="absolute -left-20 -bottom-20 w-48 h-48 bg-emerald-500/10 rounded-full blur-3xl"></div>

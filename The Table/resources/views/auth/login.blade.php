@@ -108,7 +108,7 @@
         <div class="hidden lg:flex lg:w-1/2 relative overflow-hidden">
             <!-- Background Video -->
             <video autoplay muted loop playsinline class="absolute inset-0 w-full h-full object-cover ken-burns">
-                <source src="{{ asset('assets/img/showcase/1a5868ca2539d29b13300f52ab0a2e15.mp4') }}" type="video/mp4">
+                <source src="{{ Storage::url('cohorts/images/1a5868ca2539d29b13300f52ab0a2e15.mp4') }}" type="video/mp4">
             </video>
             
             <!-- Overlay Gradient -->

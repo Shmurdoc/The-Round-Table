@@ -60,7 +60,7 @@
                              class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
                         <div class="absolute inset-0 bg-gradient-to-t from-slate-900/80 via-slate-900/20 to-transparent"></div>
                     @else
-                        <img src="{{ asset('assets/img/showcase/' . ['inv5.jpg', 'inv7.jpg', 'mb1.jpg', 'mb2.jpg', 'mb3.jpg'][($cohort->id ?? 0) % 5]) }}" 
+                        <img src="{{ Storage::url('cohorts/images/' . ['inv5.jpg', 'inv7.jpg', 'mb1.jpg', 'mb2.jpg', 'mb3.jpg'][($cohort->id ?? 0) % 5]) }}" 
                              alt="{{ $cohort->title }}" 
                              class="w-full h-full object-cover opacity-40 transition-transform duration-500 group-hover:scale-110">
                         <div class="absolute inset-0 bg-gradient-to-t from-slate-900/90 via-slate-900/40 to-transparent"></div>

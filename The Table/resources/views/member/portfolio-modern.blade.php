@@ -9,7 +9,7 @@
     <div class="bg-slate-900 rounded-3xl p-8 text-white shadow-2xl relative overflow-hidden group">
         <!-- Background Image -->
         <div class="absolute inset-0 opacity-10 group-hover:opacity-15 transition-opacity duration-1000">
-            <img src="{{ asset('assets/img/showcase/inv7.jpg') }}" 
+            <img src="{{ Storage::url('cohorts/images/inv7.jpg') }}" 
                  alt="Portfolio Background"
                  class="w-full h-full object-cover">
         </div>

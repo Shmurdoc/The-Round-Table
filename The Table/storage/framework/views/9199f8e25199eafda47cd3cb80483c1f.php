@@ -1,5 +1,3 @@
-
-
 <?php $__env->startSection('title', 'Cohorts - RoundTable'); ?>
 <?php $__env->startSection('page-title', 'Cohorts'); ?>
 
@@ -60,7 +58,7 @@
                              class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
                         <div class="absolute inset-0 bg-gradient-to-t from-slate-900/80 via-slate-900/20 to-transparent"></div>
                     <?php else: ?>
-                        <img src="<?php echo e(asset('assets/img/showcase/' . ['inv5.jpg', 'inv7.jpg', 'mb1.jpg', 'mb2.jpg', 'mb3.jpg'][($cohort->id ?? 0) % 5])); ?>" 
+                        <img src="<?php echo e(Storage::url('cohorts/images/' . ['inv5.jpg', 'inv7.jpg', 'mb1.jpg', 'mb2.jpg', 'mb3.jpg'][($cohort->id ?? 0) % 5])); ?>" 
                              alt="<?php echo e($cohort->title); ?>" 
                              class="w-full h-full object-cover opacity-40 transition-transform duration-500 group-hover:scale-110">
                         <div class="absolute inset-0 bg-gradient-to-t from-slate-900/90 via-slate-900/40 to-transparent"></div>

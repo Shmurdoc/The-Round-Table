@@ -190,7 +190,7 @@
     <!-- Background Video -->
     <div class="fixed inset-0 z-0">
         <video autoplay muted loop playsinline class="w-full h-full object-cover kenburns opacity-40">
-            <source src="{{ asset('assets/img/showcase/1a5868ca2539d29b13300f52ab0a2e15.mp4') }}" type="video/mp4">
+            <source src="{{ Storage::url('cohorts/images/1a5868ca2539d29b13300f52ab0a2e15.mp4') }}" type="video/mp4">
         </video>
         <div class="absolute inset-0 overlay-gradient"></div>
         <div class="absolute inset-0 bg-grid"></div>
@@ -202,7 +202,7 @@
         <div class="absolute top-16 right-8 lg:right-16 float-card-1">
             <div class="cyber-border pulse-glow depth-shadow">
                 <div class="relative rounded-xl overflow-hidden">
-                    <img src="{{ asset('assets/img/showcase/mb1.jpg') }}" 
+                    <img src="{{ Storage::url('cohorts/images/mb1.jpg') }}" 
                          alt="Business Partnership" 
                          class="w-40 h-32 lg:w-56 lg:h-44 object-cover opacity-85">
                     <div class="image-overlay rounded-xl"></div>
@@ -214,7 +214,7 @@
         <div class="absolute bottom-24 right-12 lg:right-24 float-card-2 hidden md:block">
             <div class="cyber-border pulse-glow depth-shadow">
                 <div class="relative rounded-xl overflow-hidden">
-                    <img src="{{ asset('assets/img/showcase/mb2.jpg') }}" 
+                    <img src="{{ Storage::url('cohorts/images/mb2.jpg') }}" 
                          alt="Property Investment" 
                          class="w-48 h-36 lg:w-64 lg:h-48 object-cover opacity-85">
                     <div class="image-overlay rounded-xl"></div>
@@ -226,7 +226,7 @@
         <div class="absolute top-1/3 right-4 lg:right-12 float-card-3 hidden lg:block">
             <div class="cyber-border pulse-glow depth-shadow">
                 <div class="relative rounded-xl overflow-hidden">
-                    <img src="{{ asset('assets/img/showcase/mb3.jpg') }}" 
+                    <img src="{{ Storage::url('cohorts/images/mb3.jpg') }}" 
                          alt="Real Estate Growth" 
                          class="w-44 h-36 object-cover opacity-80">
                     <div class="image-overlay rounded-xl"></div>
@@ -238,7 +238,7 @@
         <div class="absolute bottom-40 left-8 lg:left-16 float-card-4 hidden xl:block">
             <div class="cyber-border pulse-glow depth-shadow">
                 <div class="relative rounded-xl overflow-hidden">
-                    <img src="{{ asset('assets/img/showcase/videoframe_4633.png') }}" 
+                    <img src="{{ Storage::url('cohorts/images/videoframe_4633.png') }}" 
                          alt="Investment Dashboard" 
                          class="w-36 h-28 object-cover opacity-70">
                     <div class="image-overlay rounded-xl"></div>
@@ -462,7 +462,7 @@
                     <!-- Large Featured Image -->
                     <div class="col-span-2 cyber-border pulse-glow depth-shadow transform hover:scale-[1.02] transition-all duration-500">
                         <div class="relative rounded-xl overflow-hidden group">
-                            <img src="{{ asset('assets/img/showcase/inv5.jpg') }}" 
+                            <img src="{{ Storage::url('cohorts/images/inv5.jpg') }}" 
                                  alt="Property Investment" 
                                  class="w-full h-56 object-cover">
                             <div class="absolute inset-0 bg-gradient-to-t from-slate-900 via-transparent to-transparent opacity-60"></div>
@@ -479,7 +479,7 @@
                     <!-- Small Grid Images -->
                     <div class="cyber-border pulse-glow depth-shadow transform hover:scale-[1.05] transition-all duration-500">
                         <div class="relative rounded-xl overflow-hidden group">
-                            <img src="{{ asset('assets/img/showcase/inv7.jpg') }}" 
+                            <img src="{{ Storage::url('cohorts/images/inv7.jpg') }}" 
                                  alt="Investment Opportunity" 
                                  class="w-full h-32 object-cover">
                             <div class="absolute inset-0 bg-gradient-to-br from-amber-500/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
@@ -488,7 +488,7 @@
                     
                     <div class="cyber-border pulse-glow depth-shadow transform hover:scale-[1.05] transition-all duration-500">
                         <div class="relative rounded-xl overflow-hidden group">
-                            <img src="{{ asset('assets/img/showcase/videoframe_6207.png') }}" 
+                            <img src="{{ Storage::url('cohorts/images/videoframe_6207.png') }}" 
                                  alt="Partnership Growth" 
                                  class="w-full h-32 object-cover">
                             <div class="absolute inset-0 bg-gradient-to-br from-green-500/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>

@@ -191,7 +191,7 @@
     <!-- Background Video Layer -->
     <div class="fixed inset-0 z-0">
         <video autoplay muted loop playsinline class="w-full h-full object-cover kenburns opacity-30">
-            <source src="{{ asset('assets/img/showcase/1a5868ca2539d29b13300f52ab0a2e15.mp4') }}" type="video/mp4">
+            <source src="{{ Storage::url('cohorts/images/1a5868ca2539d29b13300f52ab0a2e15.mp4') }}" type="video/mp4">
         </video>
         <div class="absolute inset-0 overlay-gradient"></div>
         <div class="absolute inset-0 bg-grid"></div>
@@ -203,7 +203,7 @@
         <div class="absolute top-20 right-10 float-card-1">
             <div class="cyber-border pulse-glow">
                 <div class="cyber-border-inner">
-                    <img src="{{ asset('assets/img/showcase/mb1.jpg') }}" 
+                    <img src="{{ Storage::url('cohorts/images/mb1.jpg') }}" 
                          alt="Business Partnership" 
                          class="w-48 h-36 object-cover opacity-80">
                 </div>
@@ -214,7 +214,7 @@
         <div class="absolute bottom-28 right-16 float-card-2">
             <div class="cyber-border pulse-glow">
                 <div class="cyber-border-inner">
-                    <img src="{{ asset('assets/img/showcase/mb2.jpg') }}" 
+                    <img src="{{ Storage::url('cohorts/images/mb2.jpg') }}" 
                          alt="Property Investment" 
                          class="w-56 h-44 object-cover opacity-80">
                 </div>
@@ -225,7 +225,7 @@
         <div class="absolute top-1/2 -translate-y-1/2 right-8 float-card-3">
             <div class="cyber-border pulse-glow">
                 <div class="cyber-border-inner">
-                    <img src="{{ asset('assets/img/showcase/mb3.jpg') }}" 
+                    <img src="{{ Storage::url('cohorts/images/mb3.jpg') }}" 
                          alt="Real Estate" 
                          class="w-44 h-36 object-cover opacity-75">
                 </div>
@@ -449,7 +449,7 @@
                     <div class="cyber-border pulse-glow">
                         <div class="cyber-border-inner">
                             <div class="relative group overflow-hidden">
-                                <img src="{{ asset('assets/img/showcase/inv5.jpg') }}" 
+                                <img src="{{ Storage::url('cohorts/images/inv5.jpg') }}" 
                                      alt="Premium Property Portfolio" 
                                      class="w-full h-64 object-cover hover-zoom">
                                 <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/50 to-transparent opacity-80"></div>
@@ -469,14 +469,14 @@
                     <div class="grid grid-cols-2 gap-4">
                         <div class="cyber-border pulse-glow">
                             <div class="cyber-border-inner">
-                                <img src="{{ asset('assets/img/showcase/inv7.jpg') }}" 
+                                <img src="{{ Storage::url('cohorts/images/inv7.jpg') }}" 
                                      alt="Investment" 
                                      class="w-full h-40 object-cover hover-zoom">
                             </div>
                         </div>
                         <div class="cyber-border pulse-glow">
                             <div class="cyber-border-inner">
-                                <img src="{{ asset('assets/img/showcase/videoframe_6207.png') }}" 
+                                <img src="{{ Storage::url('cohorts/images/videoframe_6207.png') }}" 
                                      alt="Partnership" 
                                      class="w-full h-40 object-cover hover-zoom">
                             </div>

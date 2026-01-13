@@ -8,11 +8,11 @@
     <!-- Hero Stats -->
     <div class="bg-slate-900 rounded-3xl p-8 text-white shadow-2xl relative overflow-hidden group">
         <!-- Background Image -->
-        <div class="absolute inset-0 opacity-10 group-hover:opacity-15 transition-opacity duration-1000">
-            <img src="{{ asset('assets/img/showcase/inv5.jpg') }}" 
-                 alt="Dashboard Background"
-                 class="w-full h-full object-cover">
-        </div>
+          <div class="absolute inset-0 opacity-10 group-hover:opacity-15 transition-opacity duration-1000">
+          <img src="{{ Storage::url('cohorts/images/inv5.jpg') }}" 
+              alt="Dashboard Background"
+              class="w-full h-full object-cover">
+       </div>
         
         <!-- Background Effect Overlays -->
         <div class="absolute -right-20 -top-20 w-96 h-96 bg-amber-500/20 rounded-full blur-3xl group-hover:bg-amber-500/30 transition-all duration-1000 z-[1]"></div>
