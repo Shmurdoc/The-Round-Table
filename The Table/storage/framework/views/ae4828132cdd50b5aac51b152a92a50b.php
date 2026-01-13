@@ -1,5 +1,3 @@
-
-
 <?php $__env->startSection('title', $cohort->title ?? $cohort->name . ' - RoundTable'); ?>
 <?php $__env->startSection('page-title', 'Cohort Details'); ?>
 

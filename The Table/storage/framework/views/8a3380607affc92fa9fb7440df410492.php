@@ -1,5 +1,3 @@
-
-
 <?php $__env->startSection('title', 'Manage Cohorts - RoundTable'); ?>
 <?php $__env->startSection('page-title', 'My Cohorts'); ?>
 
