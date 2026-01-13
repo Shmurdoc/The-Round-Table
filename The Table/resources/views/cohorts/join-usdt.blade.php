@@ -20,7 +20,7 @@
             <div class="relative rounded-3xl overflow-hidden shadow-2xl border-4 border-slate-900/10">
                 @if($cohort->featured_image)
                 <div class="absolute inset-0">
-                    <img src="{{ asset('storage/' . $cohort->featured_image) }}" 
+                    <img src="{{ Storage::url($cohort->featured_image) }}" 
                          alt="{{ $cohort->title }}"
                          class="w-full h-full object-cover">
                     <div class="absolute inset-0 bg-gradient-to-br from-slate-900/95 via-indigo-900/90 to-purple-900/95"></div>

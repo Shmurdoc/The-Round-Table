@@ -290,7 +290,7 @@
                         <div class="mb-3 grid grid-cols-4 gap-2">
                             @foreach($cohort->images as $galleryImage)
                                 <div class="relative group">
-                                    <img src="{{ asset('storage/' . $galleryImage) }}" 
+                                    <img src="{{ Storage::url($galleryImage) }}" 
                                          class="w-full h-20 object-cover rounded-lg border border-slate-200">
                                     <div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition rounded-lg flex items-center justify-center">
                                         <i data-lucide="check" class="w-4 h-4 text-white"></i>

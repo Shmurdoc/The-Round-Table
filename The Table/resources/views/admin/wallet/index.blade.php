@@ -100,7 +100,7 @@
                     <div class="text-right">
                         <p class="font-bold text-xl text-emerald-600">{{ $deposit->formatted_amount }}</p>
                         @if($deposit->metadata && isset($deposit->metadata['proof']))
-                            <a href="{{ asset('storage/' . $deposit->metadata['proof']) }}" target="_blank" class="text-xs text-blue-600 hover:underline">
+                            <a href="{{ Storage::url($deposit->metadata['proof']) }}" target="_blank" class="text-xs text-blue-600 hover:underline">
                                 View Proof
                             </a>
                         @endif

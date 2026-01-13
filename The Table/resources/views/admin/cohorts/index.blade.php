@@ -29,7 +29,7 @@
                 <!-- Featured Image Header -->
                 @if($cohort->featured_image)
                 <div class="relative h-48 overflow-hidden">
-                    <img src="{{ asset('storage/' . $cohort->featured_image) }}" 
+                    <img src="{{ Storage::url($cohort->featured_image) }}" 
                          alt="{{ $cohort->title ?? $cohort->name }}"
                          class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-500">
                     <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent"></div>

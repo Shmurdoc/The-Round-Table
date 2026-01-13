@@ -55,7 +55,7 @@
                 <!-- Featured Image Header -->
                 <div class="relative h-48 overflow-hidden bg-gradient-to-br from-slate-800 to-slate-900">
                     @if($cohort->featured_image)
-                        <img src="{{ asset('storage/' . $cohort->featured_image) }}" 
+                        <img src="{{ Storage::url($cohort->featured_image) }}" 
                              alt="{{ $cohort->title }}" 
                              class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
                         <div class="absolute inset-0 bg-gradient-to-t from-slate-900/80 via-slate-900/20 to-transparent"></div>

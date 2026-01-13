@@ -26,7 +26,7 @@
         <!-- Featured Image Hero -->
         @if($cohort->featured_image)
         <div class="relative h-[400px] rounded-3xl overflow-hidden shadow-2xl group">
-            <img src="{{ asset('storage/' . $cohort->featured_image) }}" 
+            <img src="{{ Storage::url($cohort->featured_image) }}" 
                  alt="{{ $cohort->title }}"
                  class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700">
             
@@ -224,7 +224,7 @@
                     <div class="grid grid-cols-2 md:grid-cols-3 gap-4">
                         @foreach($cohort->images as $index => $galleryImage)
                         <div class="group relative aspect-video rounded-xl overflow-hidden bg-slate-100 cursor-pointer hover:shadow-xl transition-all duration-300">
-                            <img src="{{ asset('storage/' . $galleryImage) }}" 
+                            <img src="{{ Storage::url($galleryImage) }}" 
                                  alt="{{ $cohort->title }} - Image {{ $index + 1 }}"
                                  class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500">
                             

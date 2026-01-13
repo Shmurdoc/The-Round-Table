@@ -8,7 +8,7 @@
     <!-- Featured Image Hero -->
     @if($cohort->featured_image)
     <div class="relative h-64 rounded-3xl overflow-hidden shadow-2xl border-4 border-slate-900/10">
-        <img src="{{ asset('storage/' . $cohort->featured_image) }}" 
+        <img src="{{ Storage::url($cohort->featured_image) }}" 
              alt="{{ $cohort->title ?? $cohort->name }}"
              class="w-full h-full object-cover">
         <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent"></div>
