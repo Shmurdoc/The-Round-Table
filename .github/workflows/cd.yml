@@ -23,3 +23,5 @@ jobs:
           file: ./The Table/Dockerfile
           push: true
           tags: ${{ secrets.DOCKER_USERNAME }}/theroundtable:latest
+          cache-from: type=gha
+          cache-to: type=gha,mode=max

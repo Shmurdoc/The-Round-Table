@@ -22,29 +22,24 @@ jobs:
 
     steps:
       - uses: actions/checkout@v4
+      - name: Cache vendor directory
+        uses: actions/cache@v4
+        with:
+          path: The Table/vendor
+          key: ${{ runner.os }}-composer-${{ hashFiles('The Table/composer.lock') }}
       - name: Setup PHP
         uses: shivammathur/setup-php@v2
         with:
           php-version: '8.3'
           extensions: mbstring, pdo_mysql, gd, zip
-      - name: Get Composer Cache
-        uses: actions/cache@v4
-        with:
-          path: ~/.composer/cache
-          key: ${{ runner.os }}-composer-${{ hashFiles('The Table/composer.lock') }}
       - name: Install dependencies
         working-directory: The Table
         run: composer install --prefer-dist --no-progress --no-interaction
-      - name: Run migrations
+      - name: Prepare test DB
         working-directory: The Table
-        env:
-          DB_CONNECTION: mysql
-          DB_HOST: 127.0.0.1
-          DB_PORT: 3306
-          DB_DATABASE: theroundtable_test
-          DB_USERNAME: root
-          DB_PASSWORD: root
-        run: php artisan migrate --force
+        run: |
+          touch /tmp/database.sqlite
+          php artisan migrate --force --no-interaction
       - name: Run tests
         working-directory: The Table
         run: vendor/bin/phpunit --configuration phpunit.xml
