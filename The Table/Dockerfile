@@ -12,7 +12,7 @@ FROM composer:2 AS vendor
 WORKDIR /app
 COPY composer.json composer.lock ./
 # Use composer cache for faster builds
-RUN composer install --no-dev --no-interaction --prefer-dist --optimize-autoloader --no-progress
+RUN composer install --no-dev --no-interaction --prefer-dist --optimize-autoloader --no-progress --no-scripts
 
 FROM php:8.3-fpm
 LABEL maintainer="The Round Table <dev@theroundtable.example>"
@@ -39,7 +39,8 @@ WORKDIR /var/www/html
 # Copy application code and artifacts from build stages
 COPY --chown=www-data:www-data . /var/www/html
 COPY --from=vendor /app/vendor /var/www/html/vendor
-COPY --from=node_builder /app/public /var/www/html/public
+# run discovery and post-install scripts inside final image to ensure artisan exists
+RUN if [ -f /var/www/html/artisan ]; then cd /var/www/html && composer run-script post-autoload-dump --no-interaction || true; fi
 
 RUN chmod -R 755 /var/www/html && \
     mkdir -p /var/www/html/storage /var/www/html/bootstrap/cache && \
