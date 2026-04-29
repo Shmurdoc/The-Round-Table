@@ -36,18 +36,25 @@ RUN { \
 
 WORKDIR /var/www/html
 
-# Copy source and set permissions
-COPY . /var/www/html
+# Copy application code and artifacts from build stages
+COPY --chown=www-data:www-data . /var/www/html
 COPY --from=vendor /app/vendor /var/www/html/vendor
 COPY --from=node_builder /app/public /var/www/html/public
 
-RUN chown -R www-data:www-data /var/www/html && \
-    chmod -R 755 /var/www/html && \
-    mkdir -p /var/www/html/storage && chown -R www-data:www-data /var/www/html/storage /var/www/html/bootstrap/cache || true
+RUN chmod -R 755 /var/www/html && \
+    mkdir -p /var/www/html/storage /var/www/html/bootstrap/cache && \
+    chown -R www-data:www-data /var/www/html/storage /var/www/html/bootstrap/cache || true
 
-# Create a dedicated non-root user for running runtime processes
-RUN useradd -m -u 1000 appuser || true
+# Add entrypoint and make executable
+COPY docker-entrypoint.sh /usr/local/bin/docker-entrypoint.sh
+RUN chmod +x /usr/local/bin/docker-entrypoint.sh || true
+
+# Create a dedicated non-root user for runtime (appuser) but keep www-data for file ownership
+RUN addgroup --gid 1000 appuser || true && adduser --disabled-password --gecos "" --uid 1000 --gid 1000 appuser || true
+
+# Run as the non-root user by default (entrypoint tolerates non-root)
 USER appuser
 
 EXPOSE 9000
+ENTRYPOINT ["/usr/local/bin/docker-entrypoint.sh"]
 CMD ["php-fpm"]
