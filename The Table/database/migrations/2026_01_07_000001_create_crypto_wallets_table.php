@@ -24,10 +24,19 @@ return new class extends Migration
         });
 
         Schema::table('transactions', function (Blueprint $table) {
-            $table->string('currency', 10)->nullable()->after('amount');
-            $table->decimal('crypto_amount', 20, 8)->nullable()->after('currency');
-            $table->string('crypto_network', 20)->nullable()->after('crypto_amount');
-            $table->string('crypto_tx_hash', 100)->nullable()->after('reference');
+            // Only add currency if it doesn't exist (idempotency check)
+            if (!Schema::hasColumn('transactions', 'currency')) {
+                $table->string('currency', 10)->nullable()->after('amount');
+            }
+            if (!Schema::hasColumn('transactions', 'crypto_amount')) {
+                $table->decimal('crypto_amount', 20, 8)->nullable()->after('currency');
+            }
+            if (!Schema::hasColumn('transactions', 'crypto_network')) {
+                $table->string('crypto_network', 20)->nullable()->after('crypto_amount');
+            }
+            if (!Schema::hasColumn('transactions', 'crypto_tx_hash')) {
+                $table->string('crypto_tx_hash', 100)->nullable()->after('reference_number');
+            }
         });
 
         Schema::table('users', function (Blueprint $table) {
