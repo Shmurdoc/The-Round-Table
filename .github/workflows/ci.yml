@@ -41,7 +41,7 @@ jobs:
 
       - name: Install dependencies
         working-directory: The Table
-        run: composer install --prefer-dist --no-progress --no-interaction --no-scripts --ignore-platform-reqs
+        run: composer install --prefer-dist --no-progress --no-interaction --no-scripts --ignore-platform-reqs -vvv
 
       - name: Prepare test database (SQLite)
         working-directory: The Table
