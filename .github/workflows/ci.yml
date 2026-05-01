@@ -27,12 +27,6 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v4
 
-      - name: Cache vendor directory
-        uses: actions/cache@v4
-        with:
-          path: The Table/vendor
-          key: ${{ runner.os }}-composer-${{ hashFiles('The Table/composer.lock') }}
-
       - name: Setup PHP 8.4
         uses: shivammathur/setup-php@v2
         with:
@@ -41,7 +35,7 @@ jobs:
 
       - name: Install dependencies
         working-directory: The Table
-        run: composer install --prefer-dist --no-progress --no-interaction --no-scripts --ignore-platform-reqs -vvv
+        run: composer install --prefer-dist --no-progress --no-interaction --no-scripts --ignore-platform-reqs
 
       - name: Prepare test database (SQLite)
         working-directory: The Table
