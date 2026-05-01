@@ -21,25 +21,45 @@ jobs:
           --health-cmd "mysqladmin ping --silent" --health-interval 10s --health-timeout 5s --health-retries 3
 
     steps:
-      - uses: actions/checkout@v4
+      - name: Checkout code
+        uses: actions/checkout@v4
+
       - name: Cache vendor directory
         uses: actions/cache@v4
         with:
           path: The Table/vendor
           key: ${{ runner.os }}-composer-${{ hashFiles('The Table/composer.lock') }}
-      - name: Setup PHP
+
+      - name: Setup PHP 8.3
         uses: shivammathur/setup-php@v2
         with:
           php-version: '8.3'
-          extensions: mbstring, pdo_mysql, gd, zip
+          extensions: mbstring, pdo_mysql, gd, zip, pdo_sqlite
+
       - name: Install dependencies
         working-directory: The Table
-        run: composer install --prefer-dist --no-progress --no-interaction
-      - name: Prepare test DB
+        run: composer install --prefer-dist --no-progress --no-interaction --no-scripts
+
+      - name: Prepare test database (SQLite)
         working-directory: The Table
         run: |
           touch /tmp/database.sqlite
           php artisan migrate --force --no-interaction
-      - name: Run tests
+
+      - name: Run PHPUnit tests
         working-directory: The Table
         run: vendor/bin/phpunit --configuration phpunit.xml
+
+      - name: Cache config & routes
+        working-directory: The Table
+        run: |
+          php artisan config:cache
+          php artisan route:cache
+
+      - name: Smoke test - check /health endpoint
+        working-directory: The Table
+        run: |
+          php artisan serve --host 127.0.0.1 --port 8000 &
+          sleep 3
+          curl -f http://127.0.0.1:8000/health || exit 1
+
