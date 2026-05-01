@@ -11,7 +11,7 @@ COPY composer.json composer.lock ./
 # Use composer cache for faster builds; optimize autoloader
 RUN composer install --no-dev --no-interaction --prefer-dist --optimize-autoloader --no-progress --no-scripts
 
-FROM php:8.3-fpm
+FROM php:8.4-fpm
 LABEL maintainer="The Round Table <dev@theroundtable.example>"
 
 # Install system deps and PHP extensions
