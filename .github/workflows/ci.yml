@@ -12,51 +12,25 @@ env:
 jobs:
   test:
     runs-on: ubuntu-latest
-    services:
-      mysql:
-        image: mysql:8.0
-        env:
-          MYSQL_ROOT_PASSWORD: root
-          MYSQL_DATABASE: theroundtable_test
-        ports:
-          - 3306:3306
-        options: >-
-          --health-cmd "mysqladmin ping --silent" --health-interval 10s --health-timeout 5s --health-retries 3
 
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
 
-      - name: Setup PHP 8.4
-        uses: shivammathur/setup-php@v2
-        with:
-          php-version: '8.4'
-          extensions: mbstring, pdo_mysql, gd, zip, pdo_sqlite
-
-      - name: Install dependencies
+      - name: Build Docker image
         working-directory: The Table
-        run: composer install --prefer-dist --no-progress --no-interaction --no-scripts --ignore-platform-reqs
+        run: docker build -t theroundtable:test .
 
-      - name: Prepare test database (SQLite)
-        working-directory: The Table
+      - name: Run PHPUnit tests in Docker
+        run: docker run --rm theroundtable:test php vendor/bin/phpunit --configuration /var/www/html/phpunit.xml
+
+      - name: Run artisan config:cache & route:cache
+        run: docker run --rm theroundtable:test php artisan config:cache && docker run --rm theroundtable:test php artisan route:cache
+
+      - name: Health check endpoint test
         run: |
-          touch /tmp/database.sqlite
-          php artisan migrate --force --no-interaction
-
-      - name: Run PHPUnit tests
-        working-directory: The Table
-        run: vendor/bin/phpunit --configuration phpunit.xml
-
-      - name: Cache config & routes
-        working-directory: The Table
-        run: |
-          php artisan config:cache
-          php artisan route:cache
-
-      - name: Smoke test - check /health endpoint
-        working-directory: The Table
-        run: |
-          php artisan serve --host 127.0.0.1 --port 8000 &
+          docker run -d --name health-test -p 8000:9000 theroundtable:test
           sleep 3
           curl -f http://127.0.0.1:8000/health || exit 1
+          docker stop health-test
 
